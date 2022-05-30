@@ -18,7 +18,7 @@ const Hex = ({ r, g, b}) => {
   };
   
   return (
-    <h2>Hex: {{ fullColorHex }}</h2>
+    <h2 className="hex-h2"x>#FFFAKE</h2>
   )
 }
 
