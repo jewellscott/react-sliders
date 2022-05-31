@@ -1,32 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-const HueSlider = ({ hue }) => {
+const HueSlider = ({ hue, val, onColorChange }) => {
 
-  const [rangeval, setRangeval] = useState(0);
-
-  let val = (e) => {
-    setRangeval(e.target.value);
+  let changeColor = (e) => {
+    onColorChange(hue, e.target.value);
   }
-
-  useEffect(() => {
-    const rgbToHex = function (e) {
-      let hex = Number(rangeval).toString(16);
-      if (hex.length < 2) {
-        hex = "0" + hex;
-      }
-      return hex;
-    };
-
-    rgbToHex();
-  });
-
 
   return (
 
     <form className="hue-form">
       <label htmlFor={hue}>
-        <span className="hue-label">{ hue }</span>: {rangeval} </label>
+        <span className="hue-label">{ hue }</span>: {val} </label>
       <input 
         type="range" className="HueSlider" 
         id={hue} 
@@ -34,8 +19,10 @@ const HueSlider = ({ hue }) => {
         min="0" 
         max="255" 
         defaultValue="0"
-        onInput={val}
-        style={{ accentColor: `${hue}` }} />
+        value={val}
+        onInput={changeColor}
+        style={{ accentColor: `${hue}` }} 
+      />
     </form>
   )
 }

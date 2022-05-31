@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ColorPreview = () => {
+const ColorPreview = ({ hex }) => {
   return (
-    <div className="ColorPreview"></div>
+    <div className="ColorPreview" style={{ backgroundColor: hex }}></div>
   )
 }
 

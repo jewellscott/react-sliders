@@ -1,8 +1,11 @@
 import React from 'react'
+import fullColorHex from '../utils/fullColorHex';
 
-const Hex = () => {
+const Hex = ({ hex }) => {
   return (
-    <h2 className="hex-h2">#FFFAKE</h2>
+    <>
+    <h2 className="hex-h2">{ hex.toUpperCase() }</h2>
+    </>
   )
 }
 
